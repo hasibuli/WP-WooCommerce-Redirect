@@ -10,7 +10,7 @@ View documentation of [WP WooCommerce Redirect](http://www.e2soft.com/blog/chang
 
 You can set user login and register redirection page without any codding knowledge to your WooCommerce website . Your customer reduce time for using this plugin and get their destination easily.
 
- Plugin Settings 
+ Plugin Settings Video Tutorial
  https://www.youtube.com/watch?v=KcBD4aPa4z0
 
 
