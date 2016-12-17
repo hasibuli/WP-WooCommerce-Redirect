@@ -37,7 +37,7 @@ function wp_woo_redirect_page_settings() {
         <td><input type="text" name="admin_redirect" value="<?php $admin_redirect = get_option('admin_redirect'); if(!empty($admin_redirect)) {echo $admin_redirect;} else {echo admin_url() ;}?>"></td>
       </tr>
       <tr>
-        <th><label for="shop_manager_redirect">Shop Manager Redirect to (Login)</label></th>
+        <th><label for="shop_manager_redirect">Shop Manager/Seller Redirect to (Login)</label></th>
         <td><input type="text" name="shop_manager_redirect" value="<?php $shop_manager_redirect = get_option('shop_manager_redirect'); if(!empty($shop_manager_redirect)) {echo $shop_manager_redirect;} else {echo home_url('/dashboard') ;}?>"></td>
       </tr>
       <tr>
@@ -62,7 +62,7 @@ function wp_woo_redirect_page_settings() {
     <h3>About the Plugin</h3>
     <p>WP WooCommerce Redirect is a wordpress plugin to redirect your woocommerce website after register or login!  You can set any custom page or custom redirect according to user role.</p>
     <p><strong>View live demo & support of <a href="http://www.e2soft.com/blog/wp-woocommerce-redirect/" target="_blank">WP WooCommerce Redirect.</a></strong></p>
-    <!--<p>You can make my day by submitting a positive review on <a href="https://wordpress.org/support/view/plugin-reviews/wp-woocommerce-redirect" target="_blank"><strong>WordPress.org!</strong> <img src="<?php //bloginfo('url' ); echo"/wp-content/plugins/news-headline-ticker/img/review.png"; ?>" alt="review" class="review"/></a></p>-->
+    <p>You can make my day by submitting a positive review on <a href="https://wordpress.org/support/view/plugin-reviews/wp-woocommerce-redirect" target="_blank"><strong>WordPress.org!</strong> <img src="<?php bloginfo('url' ); echo"/wp-content/plugins/wp-woocommerce-redirect/img/review.png"; ?>" alt="review" class="review"/></a></p>
     <!--<p> With your help I can make Simple Fields even better! $5, $10, $50 â€“ any amount is fine! :)
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
       <input type="hidden" name="cmd" value="_s-xclick">
