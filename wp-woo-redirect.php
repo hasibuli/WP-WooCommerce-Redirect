@@ -3,7 +3,7 @@
 Plugin Name: WP WooCommerce Redirect
 Plugin URI: http://www.e2soft.com/blog/change-woocommerce-login-register-redirect-url/
 Description: WP WooCommerce Redirect is a WordPress plugin to redirect your WooCommerce website after register or login!  You can set any custom page or custom redirect according to user role. 
-Version: 1.0
+Version: 1.1
 Author: S M Hasibul Islam
 Author URI: http://www.e2soft.com/
 Copyright: 2016 S M Hasibul Islam http://www.e2soft.com
@@ -44,22 +44,21 @@ function wp_woo_custom_redirect( $redirect, $user ) {
 	$myaccount = get_permalink( wc_get_page_id( 'my-account' ) );
 
 	if( $role == 'administrator' ) {
-		
 		//Redirect administrators to the dashboard
 		$admin_redirect = get_option('admin_redirect');
 		$redirect = $admin_redirect;
-	} elseif ( $role == 'shop-manager' ) {
 		
+	} elseif ( $role == 'shop-manager' || $role == 'seller' ) {
 		//Redirect shop managers to the dashboard
 		$shop_manager_redirect = get_option('shop_manager_redirect');
 		$redirect = $shop_manager_redirect;
-	} elseif ( $role == 'customer' || $role == 'subscriber' ) {
 		
+	} elseif ( $role == 'customer' || $role == 'subscriber' ) {
 		//Redirect customers and subscribers to the "My Account" page
 		$customer_redirect = get_option('customer_redirect');
 		$redirect = $customer_redirect;
-	} else {
 		
+	} else {
 		//Redirect any other role to the previous visited page or, if not available, to the home
 		$redirect = wp_get_referer() ? wp_get_referer() : home_url();
 	}
@@ -77,15 +76,23 @@ function wp_woo_register_redirect( $redirect, $user ) {
 	 $role = $user->roles[0];
 	 $dashboard = admin_url();
 	 $myaccount = get_permalink( wc_get_page_id( 'my-account' ) );
+	 
 	 if( $role == 'administrator' ) {
-		
 		//Redirect administrators to the dashboard
 		$admin_redirect = $dashboard;
 		$redirect = $admin_redirect;
 	 }
+	 
+	 elseif ( $role == 'shop-manager' || $role == 'seller' ) {
+		//Redirect shop managers to the dashboard
+		$shop_manager_redirect = get_option('shop_manager_redirect');
+		$redirect = $shop_manager_redirect;
+	}
+	 
 	 elseif( $role == 'customer' || $role == 'subscriber' ){
 		$redirect = $myaccount; 
 	 }
+	 
      return $redirect;
 }
 add_filter('woocommerce_registration_redirect', 'wp_woo_register_redirect');
